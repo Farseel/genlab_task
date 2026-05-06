@@ -2,7 +2,7 @@ const Deal = require("../models/Deal");
 
 // GET ALL DEALS
 exports.getDeals = async (req, res) => {
-  const deals = await Deal.find();
+  const deals = await Deal.find().populate('productId');
   res.json(deals);
 };
 
@@ -10,6 +10,7 @@ exports.getDeals = async (req, res) => {
 exports.addDeal = async (req, res) => {
   const deal = new Deal(req.body);
   await deal.save();
+  await deal.populate('productId');
   res.json(deal);
 };
 
@@ -25,6 +26,6 @@ exports.updateDeal = async (req, res) => {
     req.params.id,
     req.body,
     { new: true }
-  );
+  ).populate('productId');
   res.json(updated);
 };

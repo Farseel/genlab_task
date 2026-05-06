@@ -4,10 +4,16 @@ import ProductCard from "../components/ProductCard";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+  const [deals, setDeals] = useState([]);
 
   const fetchProducts = async () => {
     const res = await API.get("/products");
     setProducts(res.data);
+  };
+
+  const fetchDeals = async () => {
+    const res = await API.get("/deals");
+    setDeals(res.data.filter(d => d.active));
   };
 
   const addToCart = async (id, name) => {
@@ -19,7 +25,11 @@ export default function Products() {
 
   useEffect(() => {
     fetchProducts();
-    const interval = setInterval(fetchProducts, 5000);
+    fetchDeals();
+    const interval = setInterval(() => {
+      fetchProducts();
+      fetchDeals();
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -40,6 +50,7 @@ export default function Products() {
           <ProductCard
             key={p._id}
             product={p}
+            deal={deals.find(d => d.productId?._id === p._id || d.productId === p._id)}
             addToCart={() => addToCart(p._id, p.name)}
           />
         ))}
