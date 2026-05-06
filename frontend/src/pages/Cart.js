@@ -40,7 +40,7 @@ export default function Cart() {
   useEffect(() => {
     fetchCart();
     fetchDeals();
-  }, [selectedDealMeta]);
+  }, []);
 
   // persist selected deal (with metadata) to localStorage so it survives reloads
   useEffect(() => {
@@ -61,7 +61,7 @@ export default function Cart() {
     } catch (e) {
       // ignore storage errors
     }
-  }, [selectedDealId, deals]);
+  }, [selectedDealId, deals, selectedDealMeta]);
 
   const increaseQty = async (item) => {
     await API.put(`/cart/${item._id}`, {
