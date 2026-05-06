@@ -41,17 +41,47 @@ export default function AdminDashboard() {
     <div className="page-shell">
       <h2 className="page-title">Manage Products</h2>
 
-      <div className="panel" style={{ marginBottom: "20px" }}>
-        <div style={{ display: "grid", gap: "8px" }}>
-          <input placeholder="Name" value={form.name || ""} onChange={e => setForm({...form, name: e.target.value})} />
-          <div style={{ display: "flex", gap: "8px" }}>
-            <input placeholder="Price" value={form.price || ""} onChange={e => setForm({...form, price: e.target.value})} />
-            <input placeholder="Stock" value={form.stock || ""} onChange={e => setForm({...form, stock: e.target.value})} />
+      <div className="panel" style={{ marginBottom: "20px", padding: "20px" }}>
+        <div style={{ display: "grid", gap: "12px" }}>
+          <input 
+            placeholder="Name" 
+            value={form.name || ""} 
+            onChange={e => setForm({...form, name: e.target.value})}
+            style={{ padding: "10px", borderRadius: "6px", border: "1px solid rgba(59,117,151,0.3)", fontSize: "14px" }}
+          />
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+            <input 
+              placeholder="Price" 
+              value={form.price || ""} 
+              onChange={e => setForm({...form, price: e.target.value})}
+              style={{ padding: "10px", borderRadius: "6px", border: "1px solid rgba(59,117,151,0.3)", fontSize: "14px" }}
+            />
+            <input 
+              placeholder="Stock" 
+              value={form.stock || ""} 
+              onChange={e => setForm({...form, stock: e.target.value})}
+              style={{ padding: "10px", borderRadius: "6px", border: "1px solid rgba(59,117,151,0.3)", fontSize: "14px" }}
+            />
           </div>
 
-          <input placeholder="Image URL" value={form.image || ""} onChange={e => setForm({...form, image: e.target.value})} />
-          <input placeholder="Category" value={form.category || ""} onChange={e => setForm({...form, category: e.target.value})} />
-          <textarea placeholder="Description" value={form.description || ""} onChange={e => setForm({...form, description: e.target.value})} />
+          <input 
+            placeholder="Image URL" 
+            value={form.image || ""} 
+            onChange={e => setForm({...form, image: e.target.value})}
+            style={{ padding: "10px", borderRadius: "6px", border: "1px solid rgba(59,117,151,0.3)", fontSize: "14px" }}
+          />
+          <input 
+            placeholder="Category" 
+            value={form.category || ""} 
+            onChange={e => setForm({...form, category: e.target.value})}
+            style={{ padding: "10px", borderRadius: "6px", border: "1px solid rgba(59,117,151,0.3)", fontSize: "14px" }}
+          />
+          <textarea 
+            placeholder="Description" 
+            value={form.description || ""} 
+            onChange={e => setForm({...form, description: e.target.value})}
+            style={{ padding: "10px", borderRadius: "6px", border: "1px solid rgba(59,117,151,0.3)", fontSize: "14px", fontFamily: "inherit", minHeight: "80px" }}
+          />
 
           <div style={{ display: "flex", gap: "8px" }}>
             <button className="primary-btn" onClick={handleSubmit}>{editingId ? "Update Product" : "Add Product"}</button>

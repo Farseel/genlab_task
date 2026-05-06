@@ -48,14 +48,12 @@ export default function DealsAdmin() {
     <div className="page-shell">
       <h2 className="page-title">Manage Deals</h2>
 
-      <div className="panel" style={{ marginBottom: "16px" }}>
-        <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", flexDirection: "column" }}>
-          <input placeholder="Title" value={form.title || ""} onChange={e => setForm({ ...form, title: e.target.value })} />
-          
+      <div className="panel" style={{ marginBottom: "16px", padding: "20px" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
           <select
             value={form.productId || ""}
             onChange={e => setForm({ ...form, productId: e.target.value })}
-            style={{ padding: "10px", borderRadius: "10px", border: "1px solid rgba(59,117,151,0.45)" }}
+            style={{ padding: "10px", borderRadius: "6px", border: "1px solid rgba(59,117,151,0.3)", fontSize: "14px" }}
           >
             <option value="">Select Product</option>
             {products.map(p => (
@@ -65,7 +63,12 @@ export default function DealsAdmin() {
             ))}
           </select>
 
-          <input placeholder="Discount %" value={form.discount || ""} onChange={e => setForm({ ...form, discount: e.target.value })} />
+          <input 
+            placeholder="Discount %" 
+            value={form.discount || ""} 
+            onChange={e => setForm({ ...form, discount: e.target.value })}
+            style={{ padding: "10px", borderRadius: "6px", border: "1px solid rgba(59,117,151,0.3)", fontSize: "14px" }}
+          />
 
           <div style={{ display: "flex", gap: "8px" }}>
             <button className="primary-btn" onClick={handleSubmit}>{editingId ? "Update Deal" : "Add Deal"}</button>
@@ -76,12 +79,16 @@ export default function DealsAdmin() {
 
       <h3 style={{ marginBottom: "12px" }}>Deals List</h3>
 
-      <div style={{ display: "grid", gap: "10px" }}>
+      <div style={{ display: "grid", gap: "8px" }}>
         {deals.map(d => (
-          <div key={d._id} className="panel" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div key={d._id} className="panel" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px" }}>
             <div>
-              <h4 style={{ margin: 0 }}>{d.title}</h4>
-              <p style={{ margin: 0, color: "#4A6575" }}>{d.discount}% OFF • {d.productId?.name || "Unknown Product"} • {d.active ? "Active" : "Inactive"}</p>
+              <p style={{ margin: 0, fontWeight: 700, fontSize: "16px", color: "#093C5D" }}>
+                {d.productId?.name || "Unknown Product"}
+              </p>
+              <p style={{ margin: "4px 0 0", color: "#4A6575", fontSize: "14px" }}>
+                {d.discount}% OFF • {d.active ? "Active" : "Inactive"}
+              </p>
             </div>
 
             <div style={{ display: "flex", gap: "8px" }}>
