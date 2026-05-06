@@ -1,0 +1,128 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --brand-deep: #093c5d;
+  --brand-mid: #3b7597;
+  --brand-light: #6fd1d7;
+  --brand-mint: #5df8d8;
+  --surface: #f4fbfd;
+  --text-primary: #0d2e44;
+  --text-muted: #4a6575;
+  --card-shadow: 0 10px 30px rgba(9, 60, 93, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  color: var(--text-primary);
+  background:
+    radial-gradient(circle at 10% 0%, rgba(93, 248, 216, 0.24), transparent 35%),
+    radial-gradient(circle at 100% 10%, rgba(111, 209, 215, 0.2), transparent 30%),
+    linear-gradient(180deg, #ffffff 0%, var(--surface) 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: var(--brand-deep);
+}
+
+.page-shell {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px 30px;
+}
+
+.page-title {
+  margin: 0 0 16px;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  color: var(--brand-deep);
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(59, 117, 151, 0.16);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  padding: 18px;
+}
+
+.primary-btn {
+  border: 0;
+  border-radius: 10px;
+  background: linear-gradient(120deg, var(--brand-mid), var(--brand-light));
+  color: #fff;
+  font-weight: 700;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.danger-btn {
+  border: 0;
+  border-radius: 10px;
+  background: #eb5d66;
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.ghost-btn {
+  border: 1px solid rgba(59, 117, 151, 0.4);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--brand-deep);
+  font-weight: 700;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  background: rgba(111, 209, 215, 0.2);
+  color: var(--brand-deep);
+  padding: 6px 10px;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.top-nav {
+  max-width: 1100px;
+  margin: 16px auto 0;
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: linear-gradient(120deg, var(--brand-deep), var(--brand-mid));
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 10px 25px rgba(9, 60, 93, 0.28);
+}
+
+.top-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  opacity: 0.92;
+}
+
+.top-nav a:hover {
+  opacity: 1;
+}
+
+@media (max-width: 700px) {
+  .page-shell {
+    margin: 18px auto;
+    padding: 0 12px 24px;
+  }
+
+  .panel {
+    padding: 14px;
+  }
+}
