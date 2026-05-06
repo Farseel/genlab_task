@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = process.env.REACT_APP_API_URL || "https://genlab-task.onrender.com";
+const baseURL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000/api";
 
 export const API = axios.create({
   baseURL: baseURL
