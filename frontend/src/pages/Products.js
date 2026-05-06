@@ -28,7 +28,7 @@ export default function Products() {
       <h2 className="page-title">Products</h2>
 
       <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
-        <span className="chip">Live catalog refreshes every 5 seconds</span>
+        <span className="chip"></span>
       </div>
 
       <div
