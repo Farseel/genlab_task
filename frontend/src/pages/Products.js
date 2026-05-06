@@ -27,9 +27,7 @@ export default function Products() {
     <div className="page-shell">
       <h2 className="page-title">Products</h2>
 
-      <div style={{ display: "flex", justifyContent: "center", marginBottom: "14px" }}>
-        <span className="chip"></span>
-      </div>
+      
 
       <div
         style={{
