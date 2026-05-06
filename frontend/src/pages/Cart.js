@@ -40,7 +40,7 @@ export default function Cart() {
   useEffect(() => {
     fetchCart();
     fetchDeals();
-  }, []);
+  }, [selectedDealMeta]);
 
   // persist selected deal (with metadata) to localStorage so it survives reloads
   useEffect(() => {
