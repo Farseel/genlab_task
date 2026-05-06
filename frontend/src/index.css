@@ -116,6 +116,21 @@ a {
   opacity: 1;
 }
 
+.cart-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) 130px auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.cart-qty-controls {
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
 @media (max-width: 700px) {
   .page-shell {
     margin: 18px auto;
@@ -124,5 +139,14 @@ a {
 
   .panel {
     padding: 14px;
+  }
+
+  .cart-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .cart-qty-controls {
+    justify-content: flex-start;
   }
 }

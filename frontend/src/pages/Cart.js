@@ -130,15 +130,14 @@ export default function Cart() {
         {cart.map(item => (
           <div
             key={item._id}
-            className="panel"
-            style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "10px", flexWrap: "wrap" }}
+            className="panel cart-row"
           >
             <div>
               <h4 style={{ margin: 0 }}>{item.productId?.name || "Product unavailable"}</h4>
               <p style={{ margin: "6px 0 0", color: "#4A6575" }}>₹{item.productId?.price ?? 0}</p>
             </div>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <div className="cart-qty-controls">
               <button className="ghost-btn" onClick={() => decreaseQty(item)}>-</button>
               <span style={{ minWidth: "20px", textAlign: "center", fontWeight: 700 }}>{item.quantity}</span>
               <button className="ghost-btn" onClick={() => increaseQty(item)}>+</button>
